@@ -10,36 +10,40 @@
 	  rel="stylesheet"
 	/>
 	<style media="only screen">
-	  :root,
-	  body {
-		height: 100%;
-		width: 100%;
-		margin: 0;
-		box-sizing: border-box;
-		-webkit-overflow-scrolling: touch;
-	  }
+		:root,
+		body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			box-sizing: border-box;
+			-webkit-overflow-scrolling: touch;
+		}
 
-	  html {
-		position: absolute;
-		top: 0;
-		left: 0;
-		padding: 0;
-		overflow: auto;
-		font-family: -apple-system, "system-ui", "Segoe UI", Roboto,
-		  "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-		  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-		  "Noto Color Emoji";
-	  }
+		html {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 0;
+			overflow: auto;
+			font-family: -apple-system, "system-ui", "Segoe UI", Roboto,
+			"Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+			"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+			"Noto Color Emoji";
+		}
 
-	  body {
-		padding: 16px;
-		overflow: auto;
-		background-color: transparent;
-	  }
+		body {
+			padding: 16px;
+			overflow: auto;
+			background-color: transparent;
+		}
 
-	  .ag-floating-filter-button {
-		display: none;
-	  }
+		.ag-floating-filter-button {
+			display: none;
+		}
+
+		.cabecera-codigo .ag-header-cell-text {
+			margin: 0px auto;
+		}
 
 	</style>
   </head>
@@ -665,9 +669,9 @@
 		  rowData: [],
 		  // Columns to be displayed (Should match rowData properties)
 		  columnDefs: [
-			{ field: "artista", flex: 2, resizable: false, sort: "asc", floatingFilter: true, filter: true, filterParams: { filterOptions: ["contains"] }},
-			{ field: "cancion", flex: 2, resizable: false, floatingFilter: true, filter: true, filterParams: { filterOptions: ["contains"] }},
-			{ field: "codigo", flex: 1, resizable: false, type: "rightAligned", floatingFilter: true, filter: true, filterParams: { filterOptions: ["contains"] }},
+			{ field: "artista", headerName: "Artista", flex: 2, resizable: false, sort: "asc", floatingFilter: true, filter: true, filterParams: { filterOptions: ["contains"] }},
+			{ field: "cancion", headerName: "Canción", flex: 2, resizable: false, floatingFilter: true, filter: true, filterParams: { filterOptions: ["contains"] }},
+			{ field: "codigo", headerName: "Código", flex: 1, resizable: false, cellRenderer: params => `<div style="text-align: center;">${params.value}</div>`, headerClass: 'cabecera-codigo', floatingFilter: true, filter: true, filterParams: { filterOptions: ["contains"] }},
 		  ],
 		  pagination: true,
 		  paginationPageSizeSelector: false,
